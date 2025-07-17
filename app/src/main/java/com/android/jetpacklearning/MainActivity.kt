@@ -16,6 +16,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextAlign
@@ -29,7 +31,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val name = remember { mutableStateOf("") }
+            val nameEntered = remember { mutableStateOf(false) }
            greeting()
+            TextAndButton(name, nameEntered)
+
         }
     }
 }
@@ -43,9 +49,8 @@ fun greeting(){
 
 @Composable
 fun TextAndButton(name: MutableState<String>, nameEntered: MutableState<Boolean>){
-    Row(
-        modifier = Modifier.padding(top=8.dp)
-    ){
+    Row( modifier = Modifier.padding(top=8.dp) ){
+        Text("test")
         TextField(
             value = name.value,
             onValueChange = {name.value = it},
