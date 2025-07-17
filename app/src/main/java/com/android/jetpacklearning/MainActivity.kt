@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -68,5 +69,13 @@ fun TextAndButton(name: MutableState<String>, nameEntered: MutableState<Boolean>
             })
 
         )
+        Button(
+            modifier = Modifier.alignByBaseline().padding(8.dp),
+            onClick = {
+                nameEntered.value = true
+            }
+        ){
+            Text("Done")
+        }
     }
 }
