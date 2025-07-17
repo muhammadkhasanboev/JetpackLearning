@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -19,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextAlign
@@ -34,16 +37,17 @@ class MainActivity : ComponentActivity() {
         setContent {
             val name = remember { mutableStateOf("") }
             val nameEntered = remember { mutableStateOf(false) }
-           greeting()
-            TextAndButton(name, nameEntered)
+
+            Hello()
+
 
         }
     }
 }
 @Composable
-fun greeting(){
+fun greeting(name : String){
     Text(
-        text="Hello",
+        text="Hello $name",
         style=MaterialTheme.typography.headlineMedium,
         textAlign = TextAlign.Center)
 }
@@ -51,7 +55,7 @@ fun greeting(){
 @Composable
 fun TextAndButton(name: MutableState<String>, nameEntered: MutableState<Boolean>){
     Row( modifier = Modifier.padding(top=8.dp) ){
-        Text("test")
+
         TextField(
             value = name.value,
             onValueChange = {name.value = it},
@@ -77,5 +81,26 @@ fun TextAndButton(name: MutableState<String>, nameEntered: MutableState<Boolean>
         ){
             Text("Done")
         }
+    }
+}
+@Composable
+fun Hello(){
+    val name = remember{mutableStateOf("")}
+    val nameEntered= remember {mutableStateOf(false)}
+
+    Box(
+        modifier = Modifier.fillMaxSize().padding(16.dp),
+        contentAlignment = Alignment.Center
+    ){
+       if(nameEntered.value){
+           greeting(name.value)
+       }else{
+           Column(
+               horizontalAlignment = Alignment.CenterHorizontally
+           ){
+               Text("Welcome")
+               TextAndButton(name,nameEntered)
+           }
+       }
     }
 }
