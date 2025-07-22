@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JetpackLearning</string>
+    <string name="hello_world">Hello %1$s</string>
 </resources>
