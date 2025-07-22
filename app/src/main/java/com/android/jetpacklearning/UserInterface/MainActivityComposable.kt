@@ -24,6 +24,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -63,9 +64,10 @@ fun TextAndButton(name: MutableState<String>,
 
             keyboardOptions = KeyboardOptions(
                 autoCorrect = false,
-                capitalization = KeyboardCapitalization.Words ),
+                capitalization = KeyboardCapitalization.Words,
+                imeAction = ImeAction.Done),
 
-            keyboardActions = KeyboardActions(onAny={
+            keyboardActions = KeyboardActions(onDone={
                 nameEntered.value = true
             } )
         )
