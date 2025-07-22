@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Jetpack ni o\'rganish</string>
     <string name="hello_world">Salom %1$s</string>
+    <string name="done">Bo\'ldi</string>
 </resources>
