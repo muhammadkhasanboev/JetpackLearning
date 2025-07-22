@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -90,7 +91,23 @@ fun TextAndButton(name: MutableState<String>,
 fun Hello(nameText: String){
     val name = remember { mutableStateOf("") }
     val nameEntered = remember { mutableStateOf(false) }
+    Box(
+        modifier = Modifier.fillMaxSize().padding(24.dp),
+        contentAlignment = Alignment.Center
+    ){
+        if(nameEntered.value){
+            Column(horizontalAlignment = Alignment.CenterHorizontally){
+                Greeting(name.value)
+                Spacer(modifier = Modifier.height(20.dp))
+                TextAndButton(name, nameEntered)
+            }
+        } else {
+            Column(horizontalAlignment = Alignment.CenterHorizontally){
+                Greeting("Please enter your name")
+                TextAndButton(name, nameEntered)
+            }
 
-    Greeting(nameText)
-    TextAndButton(name, nameEntered)
+        }
+    }
+
 }
