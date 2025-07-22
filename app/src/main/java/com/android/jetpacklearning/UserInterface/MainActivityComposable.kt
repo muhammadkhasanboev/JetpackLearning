@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import com.android.jetpacklearning.R
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
@@ -36,7 +37,7 @@ import java.nio.file.WatchEvent
 @Composable
 fun Greeting(name: String){
     Text(
-        text = "Hello, $name",
+        text = stringResource(id=R.string.hello_world, name),
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.padding(top = 20.dp)

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jetpack ni o\'rganish</string>
+    <string name="hello_world">Salom %1$s</string>
+</resources>
