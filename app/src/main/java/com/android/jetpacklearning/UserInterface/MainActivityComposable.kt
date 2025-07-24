@@ -42,8 +42,7 @@ fun Greeting(name: String){
     Text(
         text = stringResource(id=R.string.hello_world, name),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.padding(top = 20.dp)
+            style = MaterialTheme.typography.bodyLarge
         )
 }
 
@@ -88,7 +87,7 @@ fun TextAndButton(name: MutableState<String>,
 }
 
 @Composable
-fun Hello(nameText: String){
+fun Hello(){
     val name = remember { mutableStateOf("") }
     val nameEntered = remember { mutableStateOf(false) }
     Box(
@@ -103,11 +102,17 @@ fun Hello(nameText: String){
             }
         } else {
             Column(horizontalAlignment = Alignment.CenterHorizontally){
-                Greeting("Please enter your name")
+                Greeting("Please enter your name.")
                 TextAndButton(name, nameEntered)
             }
 
         }
     }
 
+}
+
+@Composable
+@Preview(showSystemUi = true)
+fun Prev() {
+    Hello()
 }

@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         val name =  mutableStateOf("")
         val nameEntered = mutableStateOf(false)
         setContent {
-            Hello("Muhammad")
+
         }
     }
 }
